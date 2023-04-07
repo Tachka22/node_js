@@ -43,14 +43,8 @@ const server = http.createServer((req, res )=>{
             res.end(generateTable(userAgent,counter));
         }
         else if(req.method === 'POST'){
-            let body = '';
-            req.on('data', (chunk) => {
-                body += chunk.toString();
-            })
-            req.on('end', () => {
                 res.setHeader('Content-Type', 'text/plain');
                 res.end('Error! No POST request');
-            })
         }
         else{
             res.statusCode = 400;
